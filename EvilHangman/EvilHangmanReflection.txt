@@ -1,0 +1,32 @@
+privatepAssesement 4: EvilHangman Reflection
+
+1) What did you learn from working on this 
+assignment?
+I learned how to better use maps and sets by doing this assignment.
+
+2) What did you struggle most with on this 
+assignment? How did you work to overcome 
+that struggle (even if you weren't able to)?
+I struggled with the fact that not everything can go in one method so then I had to split
+the record method which confused me. I ended up rewriting everything I had for that method
+on jGrasp since it wasn't making any sense to me on Ed.
+I also struggled a bit on the pattern method because I didn't know if that was "fast" meant
+or not but it ended up being the only way that worked since evrytime I tried something else
+some kind of error popped up.
+
+3) How will you use what you learned from 
+this assignment to improve your process or 
+approach on future assignments?
+I learned how to deal with breaking methods down to more simple parts, I am not te best at 
+it yet but I'll try my best to learn how I broke the record() method up and apply
+that to future projects.
+
+4) Was any part of the specification or 
+requirements unclear? If so, what part(s), 
+and how could it have been made clearer?
+No I think it was okay.
+
+5) About how many hours did you spend working 
+on this assignment? (Estimates are fine, but 
+try to get close)
+Around 15 hours, maybe more.

@@ -1,0 +1,31 @@
+Assesement 7: QuestionsGame Reflection
+
+1) What did you learn from working on this 
+assignment?
+This assignment taught me how to work with binary trees, how to create them, and walk through
+binary trees.
+
+2) What did you struggle most with on this 
+assignment? How did you work to overcome 
+that struggle (even if you weren't able to)?
+I had a spacing issue for a really long time. I split my screen and walked through my code output
+and the sample output which helped me for most of it. There was another spacing issue which I
+went to office hours for but the TA couldn't really help me so I just ended up kind of playing
+around with the code and I am not sure exactly what I changed but I ended up fixing the last part
+of the spacing error issue.
+
+3) How will you use what you learned from 
+this assignment to improve your process or 
+approach on future assignments?
+I think what helped me most was comparing my output with the sample outputs given line by line.
+Because then I was able to locate exactly where most of the errors were coming from.
+
+4) Was any part of the specification or 
+requirements unclear? If so, what part(s), 
+and how could it have been made clearer?
+I think everything was pretty clear.
+
+5) About how many hours did you spend working 
+on this assignment? (Estimates are fine, but 
+try to get close)
+12 hours
