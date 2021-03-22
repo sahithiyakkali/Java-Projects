@@ -1,13 +1,19 @@
+// Sahithi Yakkali
+// TA: Hitesh Boinpally
+// 3/9/2021
+// Assignment 8: Huffman
+// This is the implementation of a the main Huffman program. This class takes a file and 
+// compresses it using binary digits so that it can occupy less space.
 import java.util.*;
 import java.io.*;
 
 public class HuffmanCode {
+    // this is the root of the binary tree which has the letter and the frequency of that letter
     private HuffmanNode overallRoot;
+
+    // this is a constructor method that takes an array of frequencies of each letter
+    // this method initialize a new HuffmanCode object
     public HuffmanCode(int[] frequencies) {
-//This constructor should initialize a new HuffmanCode object using the algorithm described for making
-// a code from an array of frequencies. frequencies is an array of frequencies where frequences[i]
-// is the count of the character with ASCII value i. Make sure to use a PriorityQueue to build the
-// huffman code.
         Queue<HuffmanNode> queue = new PriorityQueue<HuffmanNode>();
         for (int i = 0; i < frequencies.length; i++) {
             if (frequencies[i] > 0) {
@@ -18,11 +24,16 @@ public class HuffmanCode {
         while (queue.size() > 1) {
             HuffmanNode firstNode = queue.remove();
             HuffmanNode secondNode = queue.remove();
-            HuffmanNode combine = new HuffmanNode(firstNode.freq + secondNode.freq, -1, firstNode, secondNode);
+            int freqs = firstNode.freq + secondNode.freq;
+            HuffmanNode combine = new HuffmanNode(freqs, -1, firstNode, secondNode);
             queue.add(combine);
         }
         overallRoot = queue.remove();
     }
+
+    // this is a constructor method that uses the input provided through the scanner
+    // to initialize a new HuffmanCode object,  here we assume that
+    // the input is not null and will always contain data that is legal and in standard format
     public HuffmanCode(Scanner input) {
         //overallRoot = new HuffmanNode(0, -1);
         while (input.hasNextLine()) {
@@ -30,10 +41,11 @@ public class HuffmanCode {
             String code = input.nextLine();
             overallRoot = makeTree(asciiValue, code, overallRoot);
         }
-//This constructor should initialize a new HuffmanCode object by reading in a previously constructed
-// code from a .code file. You may assume the Scanner is not null and is always contains data
-// encoded in legal, valid standard format.
     }
+
+    // this method helps make a tree of all the letters and returns a huffman node
+    // it's parameters are the integer ascii value, the binary code to the node so far, and the
+    // huffman node root
     private HuffmanNode makeTree(int val, String code, HuffmanNode root) {
         if (code.isEmpty()) {
             root = new HuffmanNode(0, val);
@@ -52,11 +64,15 @@ public class HuffmanCode {
         return root;
     }
 
+    // this method stores the current huffman codes to the given output stream in the standard
+    // format described above
     public void save(PrintStream output) {
-//This method should store the current huffman codes to the given output stream in the standard
-// format described above.
         save(output, overallRoot, "");
     }
+
+    // this method stores the current huffman codes to the given output stream in the standard
+    // format described above the other parameters this method needs other than the output stream
+    // are the root that the method is currently on and the huffman code for that root so far
     private void save(PrintStream output, HuffmanNode root, String code) {
         if(root.zero == null && root.one == null) {
             output.println(root.charVal);
@@ -66,16 +82,22 @@ public class HuffmanCode {
             save(output, root.one, code + "1");
         }
     }
+
+    // the method reads bits from the input stream and writes the characters according to those
+    // bits to the output stream, here we are assuming that the input stream contains a legal
+    // encoding of characters for the huffman code tree
+    // the parameters are the input stream and the output stream
     public void translate(BitInputStream input, PrintStream output) {
         HuffmanNode root = overallRoot;
         while(input.hasNextBit()) {
             translate(input, output, overallRoot);
         }
-// This method should read individual bits from the input stream and write the corresponding characters
-// to the output. It should stop reading when the BitInputStream is empty. You may assume that
-// the input stream contains a legal encoding of characters for this tree’s huffman code. See below
-// for the methods that a BitInputStream has.
     }
+
+    // this method helps read bits from the input stream and writes the characters according to
+    // those bits to the output stream, here we are assuming that the input stream contains a
+    // legal encoding of characters for the huffman code tree
+    // the parameters are the input stream, the output stream, the node that the method is on
     private void translate(BitInputStream input, PrintStream output, HuffmanNode root) {
         if (root.zero != null && root.one != null) {
                 int zeroOrOne = input.nextBit();
